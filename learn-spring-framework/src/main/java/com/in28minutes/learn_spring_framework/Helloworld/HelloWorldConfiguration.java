@@ -1,7 +1,8 @@
-package com.in28minutes.learn_spring_framework;
+package com.in28minutes.learn_spring_framework.Helloworld;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 record Person(String name, int age, Address address) {
 };
@@ -30,12 +31,12 @@ public class HelloWorldConfiguration {
 	}
 
 	@Bean
-	public Person person2MethodCall() {
+	public Person person2MethodCall() { //method calls
 		var person = new Person(name(), age(), address());
 		return person;
 	}
 
-	@Bean
+	@Bean  //by passing parameters
 	public Person person3Parameter(String name, int age, Address address3) { // name, age, address2
 		var person = new Person(name, age, address3);
 		return person;
@@ -48,6 +49,7 @@ public class HelloWorldConfiguration {
 	}
 	
 	@Bean(name = "address3")
+	@Primary
 	public Address address2() {
 		var address = new Address("alandi pune", "Pune");
 		return address;
