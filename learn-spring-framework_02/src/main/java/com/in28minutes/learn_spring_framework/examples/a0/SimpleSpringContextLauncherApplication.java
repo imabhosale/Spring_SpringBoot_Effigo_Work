@@ -15,10 +15,11 @@ class YourBusinessClass {
 
 	Dependency2 dependency2;
 
-	//@Autowired
+	@Autowired
+	//Autowire is not mandatory
 	public YourBusinessClass(Dependency1 dependency1, Dependency2 dependency2) {
 		super();
-		System.out.println("setting constructor injection");
+		System.out.println("constructor injection");
 		this.dependency1 = dependency1;
 		this.dependency2 = dependency2;
 	}
