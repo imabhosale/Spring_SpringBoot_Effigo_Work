@@ -1,4 +1,3 @@
-package com.abhi.learn_jpa_hibernate;
 
 
 import org.springframework.boot.SpringApplication;
