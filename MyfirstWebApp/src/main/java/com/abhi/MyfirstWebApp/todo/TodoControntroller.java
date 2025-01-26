@@ -44,7 +44,7 @@ public class TodoControntroller {
 		
 		todoService.addTodo(
 				(String)model.get("name"),
-				todo.getDescription(), LocalDate.now().plusYears(1), false);
+				todo.getDescription(),todo.getTargetDate(), false);
 		return "redirect:list-todos";
 	}
 	

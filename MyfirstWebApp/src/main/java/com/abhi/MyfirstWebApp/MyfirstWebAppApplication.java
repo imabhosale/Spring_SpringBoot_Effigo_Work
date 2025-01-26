@@ -10,5 +10,4 @@ public class MyfirstWebAppApplication {
 		SpringApplication.run(MyfirstWebAppApplication.class, args);
 		System.out.println("working");
 	}
-
 }
