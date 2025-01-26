@@ -2,32 +2,49 @@
 
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- /META-INF/resources/webjars/bootstrap/5.1.3/css/bootstrap.min.css
+	/META-INF/resources/webjars/bootstrap/5.1.3/js/bootstrap.min.js
+	/META-INF/resources/webjars/jquery/3.6.0/jquery.min.js
+	 -->
+]
 <title>list todos page</title>
 </head>
 <body>
-	welcome to ${name} !!!
-	<div>Your Todos are:</div>
-	<table>
+	<div class="container">
+		
+		<div><h1>Your Todos: </h1></div>
+		<table class="table">
 
-		<thead>
-			<tr>
-				<th>id</th>
-				<th>Description</th>
-				<th>Target-date</th>
-				<th>Is He Completed</th>
-			<tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${todos}" var="todo">
+			<thead>
 				<tr>
-					<td>${todo.id}</td>
-					<td>${todo.description}</td>
-					<td>${todo.targetDate}</td>
-					<td>${todo.done}</td>
+					<th>id</th>
+					<th>Description</th>
+					<th>Target-date</th>
+					<th>Is He Completed</th>
+					<th></th>
+					<th></th>
 				<tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<c:forEach items="${todos}" var="todo">
+					<tr>
+						<td>${todo.id}</td>
+						<td>${todo.description}</td>
+						<td>${todo.targetDate}</td>
+						<td>${todo.done}</td>
+						<td><a href="update-todo?id=${todo.id}" class="btn btn-success">Update</a></td>
+						<td><a href="delete-todo?id=${todo.id}" class="btn btn-warning">DELETE</a></td>
+					<tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<a href="add-todo" class="btn btn-success"> Add Todo</a>
+	</div>
+	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+
 </body>
 </html>

@@ -7,12 +7,13 @@
 <title>Login Please</title>
 </head>
 <body>
-	Please login here ${name}
-	<pre>${errorMessage}</pre>
-	<form method="post">
-	Name: <input type="text" name="name">
-	Password: <input type="password" name="password">
-	<input type="submit">
-	</form>
+	<div class="container">
+		<h1> Please login here ${name}</h1>
+		<pre>${errorMessage}</pre>
+		<form method="post">
+			Name: <input type="text" name="name"> Password: <input
+				type="password" name="password"> <input type="submit">
+		</form>
+	</div>
 </body>
 </html>
