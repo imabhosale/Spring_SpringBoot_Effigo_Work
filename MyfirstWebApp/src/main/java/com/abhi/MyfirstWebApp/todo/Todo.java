@@ -21,6 +21,9 @@ public class Todo {
 	//dataBase: h2/mysql/postgres
 	//static list
 	
+	public Todo() {
+		
+	}
 	@Override
 	public String toString() {
 		return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="

@@ -21,12 +21,17 @@ import jakarta.validation.Valid;
 public class TodoControntrollerJPA {
 	@Autowired
 	private TodoService todoService;
+	
+
+	@Autowired
+	private TodoRepository todoRepository;
 
 	@RequestMapping("list-todos")
 	public String getListTodo(ModelMap model) {
 		
 		String userName=getLoggedInUsername(model);
-		List<Todo> todos= todoService.findbyUserName(userName);
+		
+		List<Todo> todos= todoRepository.findByUsername(userName);
 		model.addAttribute("todos",todos);
 		return "listTodos";
 	}
@@ -46,22 +51,22 @@ public class TodoControntrollerJPA {
 			return "todo";
 		}
 		
-		todoService.addTodo(
-				getLoggedInUsername(model),
-				todo.getDescription(),todo.getTargetDate(), false);
+		String username=getLoggedInUsername(model);
+		todo.setUsername(username);
+		todoRepository.save(todo);
 		return "redirect:list-todos";
 	}
 	
 	@RequestMapping("delete-todo")
 	public String deleteTodo(@RequestParam int id) {
 		//delete this todo
-		todoService.deleteById(id);
+		todoRepository.deleteById(id);
 		return "redirect:list-todos";
 	}
 	
 	@RequestMapping(value = "update-todo",method = RequestMethod.GET)
 	public String showUpdateTodo(@RequestParam int id, ModelMap model) {
-		Todo todo= todoService.findById(id);
+		Todo todo= todoRepository.findById(id).get();
 		//delete this todo
 //		todoService.deleteById(id);
 		model.addAttribute("todo",todo);
@@ -77,7 +82,8 @@ public class TodoControntrollerJPA {
 		
 		String username=getLoggedInUsername(model);
 		todo.setUsername(username);
-		todoService.updateTo(todo);
+		todoRepository.save(todo);
+//		todoService.updateTo(todo);
 		return "redirect:list-todos";
 	}
 	

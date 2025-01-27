@@ -22,8 +22,6 @@ public class TodoControntroller {
 	@Autowired
 	private TodoService todoService;
 	
-	@Autowired
-	private TodoRepository todoRepository;
 
 	@RequestMapping("list-todos")
 	public String getListTodo(ModelMap model) {
