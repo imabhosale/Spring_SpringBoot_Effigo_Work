@@ -16,14 +16,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jakarta.validation.Valid;
 
-//@Controller
+@Controller
 @SessionAttributes("name")
-public class TodoControntroller {
+public class TodoControntrollerJPA {
 	@Autowired
 	private TodoService todoService;
-	
-	@Autowired
-	private TodoRepository todoRepository;
 
 	@RequestMapping("list-todos")
 	public String getListTodo(ModelMap model) {
