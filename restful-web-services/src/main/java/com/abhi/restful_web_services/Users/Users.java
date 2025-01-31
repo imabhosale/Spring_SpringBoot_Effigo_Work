@@ -2,9 +2,14 @@ package com.abhi.restful_web_services.Users;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Users {
 	private Integer id;
+	@JsonProperty("user_name")  //customize the elment filed for json
 	private String name;
+	
+	@JsonProperty("birth_date")
 	private LocalDate birthDate;
 	
 	public Users(Integer id, String name, LocalDate birthDate) {
