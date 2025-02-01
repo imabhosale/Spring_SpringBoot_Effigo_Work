@@ -1,16 +1,35 @@
 package com.abhi.restful_web_services.Users;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+
+@Entity(name="user_details")
 public class Users {
+	
+	protected Users() {
+		
+	}
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
-	@JsonProperty("user_name")  //customize the elment filed for json
+	//@JsonProperty("user_name")  //customize the elment filed for json
 	private String name;
 	
 	@JsonProperty("birth_date")
 	private LocalDate birthDate;
+	
+	
+	@OneToMany(mappedBy = "users")
+	private List<Post> posts;
 	
 	public Users(Integer id, String name, LocalDate birthDate) {
 		super();
