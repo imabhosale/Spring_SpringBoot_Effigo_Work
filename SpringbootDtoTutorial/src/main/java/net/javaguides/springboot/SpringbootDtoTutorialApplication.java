@@ -40,17 +40,17 @@ public class SpringbootDtoTutorialApplication implements CommandLineRunner {
 		locationRepository.save(location);
 
 		User user1 = new User();
-		user1.setFirstName("Ramesh");
-		user1.setLastName("Fadatare");
-		user1.setEmail("ramesh@gmail.com");
+		user1.setFirstName("Abhishek");
+		user1.setLastName("Bhosale");
+		user1.setEmail("abhishek@gmail.com");
 		user1.setPassword("secret");
 		user1.setLocation(location);
 		userRepository.save(user1);
 
 		User user2 = new User();
-		user2.setFirstName("John");
-		user2.setLastName("Cena");
-		user2.setEmail("john@gmail.com");
+		user2.setFirstName("Aniket");
+		user2.setLastName("gore");
+		user2.setEmail("aniket@gmail.com");
 		user2.setPassword("secret");
 		user2.setLocation(location);
 		userRepository.save(user2);
