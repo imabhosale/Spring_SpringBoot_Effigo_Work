@@ -1,0 +1,23 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN NOT NULL
+);
+
+
+ALTER TABLE users
+ADD CONSTRAINT unique_username UNIQUE (username);
+
+
+CREATE TABLE authorities (
+  username VARCHAR(255) NOT NULL,
+  authority VARCHAR(255) NOT NULL,
+  PRIMARY KEY (username, authority)  -- Unique constraint on (username, authority) pair
+);
+
+
+drop table authorities;
+
+SELECT * FROM users WHERE username = 'abhi';
+
